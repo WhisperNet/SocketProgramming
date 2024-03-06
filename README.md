@@ -1,5 +1,6 @@
 # SocketProgramming
 <i>Creating server client communication using kernel's socket API</i>
+
 ## Set-Up
 ### To run both SERVER and CLIENT on the same device
 - Run the SERVER script to set up the server
