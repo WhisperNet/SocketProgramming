@@ -1,12 +1,14 @@
 import socket
 import threading
+
+s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+s.connect(("www.google.com", 80))
+local_ip = s.getsockname()[0]
+s.close()
+
 HEADER = 64
 PORT = 5050
-#################################################
-# Assign your local IP address to the SERVER variable
-SERVER = socket.gethostbyname(socket.gethostname())
-#SERVER = ''
-#################################################
+SERVER = local_ip
 ADDR = (SERVER, PORT)
 FORMAT= 'utf-8'
 DISCONNECT_MSG = '!dis'
@@ -35,6 +37,9 @@ def handle_client(conn,addr):
 
 def start():
     server.listen()
+    print(f"The IP address of this server is [{local_ip}]\nTo connect clients with this server copy the IP and pass it to the client")
+    input("\nPress ENTER to START THE SERVER. Current server status on PAUSE ")
+    print("Starting the server......\nSERVER is running and")
     print(f"Listening on {SERVER}\n")
     while True:
         conn, addr = server.accept()
@@ -42,6 +47,5 @@ def start():
         thread.start()
         print(f"This Client will be handled by Thread No: {threading.active_count()-1}\nWating for client to send a message.....")
 
-
-print("STARTING SERVER....")
+print()
 start()
