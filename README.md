@@ -4,7 +4,7 @@
 ## Set-Up
 - First run server.py
 - Then run client.py
-- Both script should be running on devices which are under same local networks 
+- Both script should be running on devices which are under the same local networks 
 
 
 
